@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o Meu Amor ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cor-fundo: #fff5f5;
+            --cor-principal: #d63384;
+            --cor-texto: #4a4a4a;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(255,245,245,0.7), rgba(255,245,245,0.7)), url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=1500');
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: var(--cor-principal);
+            margin-bottom: 10px;
+        }
+
+        /* Contador Estilo DearYou */
+        .contador-container {
+            padding: 50px 20px;
+            background: #fff;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .timer-item {
+            background: var(--cor-fundo);
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 80px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .timer-item span {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--cor-principal);
+        }
+
+        /* Galeria */
+        .galeria {
+            padding: 50px 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .foto-card {
+            background: white;
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: rotate(-2deg);
+            transition: 0.3s;
+        }
+
+        .foto-card:nth-child(even) { transform: rotate(2deg); }
+        .foto-card:hover { transform: rotate(0deg) scale(1.05); }
+
+        .foto-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .foto-card p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Texto de Amor */
+        .mensagem {
+            padding: 80px 15%;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        footer {
+            padding: 40px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Botão Flutuante Música */
+        #music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--cor-principal);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Para: [ Lindeza ]</h1>
+        <p>Você é a melhor parte do meu dia.</p>
+    </header>
+
+    <section class="contador-container">
+        <h2>Estamos escrevendo nossa história há:</h2>
+        <div class="timer" id="timer">
+            <div class="timer-item"><span id="days">0</span>Dias</div>
+            <div class="timer-item"><span id="hours">0</span>Horas</div>
+            <div class="timer-item"><span id="minutes">0</span>Min</div>
+            <div class="timer-item"><span id="seconds">0</span>Seg</div>
+        </div>
+    </section>
+
+    <section class="mensagem">
+        <p>"Desde o momento em que te conheci, eu não só conheci a melhor pessoa do mundo, como eu conhecio amor "</p>
+    </section>
+
+    <section class="galeria">
+        <div class="foto-card">
+            <img src="https://imgur.com/gallery/vidas-Mp8pThs" alt="Momento 1">
+            <p>o casal mais lindo:</p>
+        </div>
+        <div class="foto-card">
+            <img src="https://imgur.com/gallery/dsadsaf-vAbduxc" alt="Momento 2">
+            <p>Aquele dia especial</p>
+        </div>
+        <div class="foto-card">
+            <img src="https://imgur.com/gallery/sfasf-p5xOy9l" alt="Momento 3">
+            <p>Meu sorriso favorito</p>
+        </div>
+    </section>
+
+    <div style="display:none">
+        <iframe id="player" width="1" height="1" src="https://open.spotify.com/intl-pt/track/3siwsiaEoU4Kuuc9WKMUy5?si=1b6a9800887b46b4" frameborder="0"></iframe>
+    </div>
+
+    <footer>
+        Com todo o meu amor, [ Sony ] &hearts;
+    </footer>
+
+    <script>
+        // CONFIGURAÇÃO DA DATA (Ano, Mês-1, Dia, Hora, Minuto)
+        const dataInicio = new Date(2025, 0, 05, 10, 0, 0); // Ex: 15 de Jan de 2023
+
+        function atualizarContador() {
+            const agora = new Date();
+            const diferenca = agora - dataInicio;
+
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+            const minutos = Math.floor((diferenca / 1000 / 60) % 60);
+            const segundos = Math.floor((diferenca / 1000) % 60);
+
+            document.getElementById('days').innerText = dias;
+            document.getElementById('hours').innerText = horas;
+            document.getElementById('minutes').innerText = minutos;
+            document.getElementById('seconds').innerText = segundos;
+        }
+
+        setInterval(atualizarContador, 1000);
+        atualizarContador();
+    </script>
+</body>
+</html>
