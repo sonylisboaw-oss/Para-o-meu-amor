@@ -83,14 +83,69 @@
         .foto-card:nth-child(even) { transform: rotate(2deg); }
         .foto-card:hover { transform: rotate(0deg) scale(1.05); }
 
-        .foto-card {
+        /* A moldura branca da Polaroid */
+.foto-card {
     background: white;
-    padding: 20px;       /* Mais borda branca em volta, estilo foto antiga */
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* Sombra mais suave e elegante */
-    transition: 0.3s;
-    border-radius: 4px;  /* Curva suave nos cantos */
+    padding: 15px 15px 40px 15px; /* Borda grossa em baixo para o texto */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Sombra para dar profundidade */
+    border-radius: 2px;
+    margin-bottom: 30px;
+    display: inline-block;
+    width: 90%;
+    max-width: 400px; /* Tamanho ideal para Polaroid */
+    transition: transform 0.3s ease;
 }
 
+/* Efeito de inclinação (opcional, dá um charme) */
+.foto-card:nth-child(even) { transform: rotate(2deg); }
+.foto-card:nth-child(odd) { transform: rotate(-2deg); }
+.foto-card:hover { transform: rotate(0deg) scale(1.02); }
+
+/* A foto dentro da Polaroid */
+/* A moldura branca da Polaroid */
+.foto-card {
+    background: white;
+    padding: 15px 15px 40px 15px; /* Borda grossa em baixo para o texto */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Sombra para dar profundidade */
+    border-radius: 2px;
+    margin-bottom: 30px;
+    display: inline-block;
+    width: 90%;
+    max-width: 400px; /* Tamanho ideal para Polaroid */
+    transition: transform 0.3s ease;
+}
+
+/* Efeito de inclinação (opcional, dá um charme) */
+.foto-card:nth-child(even) { transform: rotate(2deg); }
+.foto-card:nth-child(odd) { transform: rotate(-2deg); }
+.foto-card:hover { transform: rotate(0deg) scale(1.02); }
+
+/* A foto dentro da Polaroid */
+.foto-card img {
+    width: 100%;
+    height: 350px; /* Altura fixa para manter o padrão */
+    object-fit: cover; /* Faz a foto preencher o quadrado bonitinho */
+    display: block;
+}
+
+/* O texto em baixo da foto */
+.foto-card p {
+    font-family: 'Dancing Script', cursive; /* Fonte manuscrita */
+    font-size: 1.5rem;
+    color: #444;
+    margin-top: 20px;
+    text-align: center;
+}
+}
+
+/* O texto em baixo da foto */
+.foto-card p {
+    font-family: 'Dancing Script', cursive; /* Fonte manuscrita */
+    font-size: 1.5rem;
+    color: #444;
+    margin-top: 20px;
+    text-align: center;
+}
         .foto-card p {
             font-family: 'Dancing Script', cursive;
             font-size: 1.2rem;
@@ -196,6 +251,7 @@
 </body>
 
 </html>
+
 
 
 
