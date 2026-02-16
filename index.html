@@ -66,32 +66,30 @@
             font-size: 2rem;
             font-weight: bold;
             color: var(--cor-principal);
-        }
+       .galeria {
+    padding: 50px 5%; /* Diminuí a margem lateral para sobrar mais espaço */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Aumentei de 250 para 350 */
+    gap: 40px; /* Mais espaço entre uma foto e outra */
+}
 
-        /* Galeria */
-        .galeria {
-            padding: 50px 10%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .foto-card {
-            background: white;
-            padding: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transform: rotate(-2deg);
-            transition: 0.3s;
-        }
+        .foto-card img {
+    width: 100%;          /* Faz a foto usar toda a largura do card */
+    height: 400px;        /* Aumentamos a altura de 250px para 400px */
+    object-fit: cover;    /* Preenche o espaço. Se preferir a foto inteira sem cortar nada, use 'contain' */
+    border-bottom: 1px solid #eee; /* Uma linha fina para separar a foto da legenda */
+}
 
         .foto-card:nth-child(even) { transform: rotate(2deg); }
         .foto-card:hover { transform: rotate(0deg) scale(1.05); }
 
-        .foto-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
+        .foto-card {
+    background: white;
+    padding: 20px;       /* Mais borda branca em volta, estilo foto antiga */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* Sombra mais suave e elegante */
+    transition: 0.3s;
+    border-radius: 4px;  /* Curva suave nos cantos */
+}
 
         .foto-card p {
             font-family: 'Dancing Script', cursive;
@@ -198,6 +196,7 @@
 </body>
 
 </html>
+
 
 
 
